@@ -7,15 +7,21 @@ export class RecipeService{
 
     private recipes: Recipe[] = [
         new Recipe(
-            'A Test Recipe', 
-            'This is a Simple test', 
-            'https://cdn.pixabay.com/photo/2016/06/15/19/09/food-1459693_960_720.jpg',
-            [new Ingredient('Apples', 5)]),
+            'Tasty Schinitzel',
+            'A super-tasty Schnitzel - just awesome!',
+            'https://upload.wikimedia.org/wikipedia/commons/7/72/Schnitzel.JPG',
+            [
+                new Ingredient('Meat', 1),
+                new Ingredient('French Fries', 20)
+            ]),
         new Recipe(
-            'Other Test Recipe', 
-            'This is other Simple test', 
-            'https://upload.wikimedia.org/wikipedia/commons/1/15/Recipe_logo.jpeg',
-            [new Ingredient('Tomates', 10)])
+            'Big Fat Burger',
+            'What else you nedd to say?',
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Cheeseburger.jpg/1200px-Cheeseburger.jpg',
+            [
+                new Ingredient('Buns', 2),
+                new Ingredient('Meet', 1)
+            ])
     ];
 
     getRecipes() {
