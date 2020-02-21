@@ -1,8 +1,8 @@
 import { Ingredient } from '../shared/ingedient.model';
-import { EventEmitter } from '@angular/core';
+import { Subject } from 'rxjs';
 
 export class ShoppingListService {
-    ingredientsChanged = new EventEmitter<Ingredient[]>();
+    ingredientsChanged = new Subject<Ingredient[]>();
     private ingredients: Ingredient[] = [];
 
     getIngredients() {
@@ -11,7 +11,7 @@ export class ShoppingListService {
 
     addIngredient(ingredient: Ingredient){
         this.ingredients.push(ingredient);
-        this.ingredientsChanged.emit(this.ingredients.slice());
+        this.ingredientsChanged.next(this.ingredients.slice());
     }
 
     addIngredients(ingredients: Ingredient[]){
@@ -23,14 +23,14 @@ export class ShoppingListService {
             );
             
             if(ingredientInList.length === 0){
-                this.ingredients.push(ingredient);    
+                this.ingredients.push(ingredient);
             } else {
                 //Añadimos el ingrediente con la nueva cantidad
-                ingredientInList[0].amount += ingredient.amount; 
+                ingredientInList[0].amount += ingredient.amount;
             }
         }
 
-        this.ingredientsChanged.emit(this.ingredients.slice());
+        this.ingredientsChanged.next(this.ingredients.slice());
 
     }
 }
